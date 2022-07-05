@@ -1,0 +1,122 @@
+<mat-toolbar class="p-0 mat-elevation-z1">
+
+    <div fxFlex fxFill fxLayout="row" fxLayoutAlign="start center">
+
+        <div fxFlex="1 0 auto" fxLayout="row" fxLayoutAlign="start center">
+
+            <button mat-icon-button class="navbar-toggle-button" *ngIf="!hiddenNavbar && !rightNavbar"
+                (click)="toggleSidebarOpen('navbar')" fxHide.gt-md>
+                <mat-icon class="secondary-text">menu</mat-icon>
+            </button>
+
+            <div class="pl-12 w-75-p" fxHide.xs Fxflex="0 1 auto" Fxflex="75" fxLayout="row" fxLayoutAlign="start center">
+                <div Fxflex="50" class="w-50-p mr-12 left-toolbar" fxLayout="row" fxLayoutAlign="start center">
+                    <!-- <div Fxflex="55" class="text-left">
+                        <h5 class="heading-branding tagline-text">{{fuseConfig.layout.toolbar.title}}</h5>
+                    </div> -->
+                    <div Fxflex="45" class="font-size-12 ml-16 mr-16 time-date">
+                        <mat-icon class="icon-position-toolbar">access_time</mat-icon> {{displayDate}} {{displayTime}}
+                    </div>
+                </div>
+                <div Fxflex="50" *ngIf="userRole!=0" class=" w-50-p right-toolbar" fxLayout="row"
+                    fxLayoutAlign="center center">
+                    <div Fxflex="30" class="account-type">
+                        <h5 class="header-text-color"><b class="heading-branding">Account Type :</b> {{userAccountType}}
+                        </h5>
+                    </div>
+                    <!-- <div class="toolbar-separator ml-32 mr-32"></div>
+                    <div Fxflex="30" class="header-text-color account-credit">
+                        <mat-icon class="icon-position-toolbar" style="color:#67c15e;">account_balance_wallet</mat-icon>
+                        {{credit}}
+                    </div> -->
+
+
+                    <!-- <div class="toolbar-separator ml-16 mr-16"></div>
+                    <div Fxflex="30" class="notification">
+                        <mat-icon style="color:#039be5;">notifications_none</mat-icon>
+                    </div> -->
+                    <!-- <div class="toolbar-separator ml-12 mr-0"></div>-->
+                </div>
+            </div>
+
+            <!-- <div class="w-85-p pl-12" Fxflex="70" fxFlex="0 1 auto" fxLayout="row" fxLayoutAlign="start center">
+                <div Fxflex="50" class="w-50-p" fxLayout="row" fxLayoutAlign="start center">
+                    <div Fxflex="60" class="text-left">
+                        <h5 class="heading-branding">Omni Channel Campaign Solution</h5>
+                    </div>
+                    <div Fxflex="40" class="font-size-14 ml-32 mr-32">
+                        <mat-icon class="icon-position-toolbar">access_time</mat-icon> {{displayDate}} {{displayTime}}
+                    </div>
+                </div>
+                <div Fxflex="50" class="w-50-p w-50-p pr-32" fxLayout="row" fxLayoutAlign="end center">
+                    <div Fxflex="30" *ngIf="userRole!=0">
+                        <h5 class="header-text-color"><b class="heading-branding">Account Type :</b> {{userAccountType}}
+                        </h5>
+                    </div>
+                    <div class="toolbar-separator ml-16 mr-16" *ngIf="userRole!=0"></div>
+                    <div Fxflex="30" class="header-text-color" *ngIf="userRole!=0">
+                        <mat-icon class="icon-position-toolbar" style="color:#67c15e;">account_balance_wallet</mat-icon>
+                        {{credit}}
+                    </div>
+                    <div class="toolbar-separator ml-16 mr-16"></div>
+                    <div Fxflex="30">
+                        <mat-icon style="color:#039be5;">notifications_none</mat-icon>
+                    </div>
+                    <div class="toolbar-separator ml-16 mr-0"></div>
+                </div>
+            </div> -->
+
+
+            <!-- <button mat-button [matMenuTriggerFor]="userMenu" class="user-button" style="position: absolute; right: 0;">
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <img class="avatar mr-0 mr-sm-16" src="assets/images/avatars/profile.jpg">
+                    <span class="username mr-12" fxShow.gt-sm>{{userData.username}}</span>
+                    <mat-icon class="s-16">keyboard_arrow_down</mat-icon>
+                </div>
+            </button> -->
+            <div class="ml-4" Fxflex="0 1 auto" Fxflex="25" fxLayout="row" fxLayoutAlign="start center">
+                <div Fxflex="30" class="header-text-color">
+                    <mat-icon class="icon-position-toolbar" [ngClass]="fuseConfig.layout.navbar.walletClr">
+                        account_balance_wallet</mat-icon>
+                    {{credit}}
+                </div>
+                <div class="toolbar-separator ml-12 mr-4"></div>
+                <button mat-button [matMenuTriggerFor]="userMenu" class="user-button" style="max-width: 280;">
+                    <div fxLayout="row" fxLayoutAlign="center center">
+                        <img class="avatar mr-4 mr-sm-8" src="assets/images/avatars/profile.jpg">
+                        <span class="username mr-12"
+                            style="overflow: hidden; margin-left: 5px; text-overflow: ellipsis;"
+                            fxShow.gt-sm>{{userData.username}}</span>
+                        <mat-icon class="s-16">keyboard_arrow_down</mat-icon>
+                    </div>
+                </button>
+
+                <mat-menu #userMenu="matMenu" [overlapTrigger]="false">
+
+                    <button *ngFor="let obj of upperNavigationArr" [routerLink]="obj.url" mat-menu-item>
+                        <mat-icon>{{obj.icon}}</mat-icon>
+                        <span>{{obj.title}}</span>
+                    </button>
+                    <button mat-menu-item class="" (click)="logoutTheUser()">
+                        <mat-icon>exit_to_app</mat-icon>
+                        <span>Logout</span>
+                    </button>
+                    <!-- <button [routerLink]="'/profile'" mat-menu-item>
+                        <mat-icon>account_circle</mat-icon>
+                        <span>My Profile</span>
+                    </button>
+
+                    <button mat-menu-item class="" (click)="logoutTheUser()">
+                        <mat-icon>exit_to_app</mat-icon>
+                        <span>Logout</span>
+                    </button> -->
+
+                </mat-menu>
+            </div>
+        </div>
+
+
+
+    </div>
+
+</mat-toolbar>

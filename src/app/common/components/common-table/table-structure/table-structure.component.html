@@ -1,0 +1,34 @@
+
+   <!-- <div>
+    <input type="text" [(ngModel)]="term" [ngModelOptions]="{standalone: true}" (ngModelChange)='search()'>
+    </div> -->
+  <table class="table">
+    <thead>
+      <ng-container *ngFor="let column of columns; let i = index">
+        <ng-container *ngIf="headerCellTemplate">
+          <th (click)="sortByCol(column)">
+            <ng-container *ngTemplateOutlet="headerCellTemplate; context: {index: i, columns: columns}">
+            </ng-container>
+          </th>
+        </ng-container>
+      </ng-container>
+    </thead>
+  
+    <tbody>
+          
+          <ng-container *ngFor="let row of dataSource | paginate:{itemsPerPage:limit, currentPage:p, totalItems:totalcount}; let rowIndex = index">
+            <tr>
+              <ng-container *ngFor="let column of columns; let columnIndex = index">
+                <ng-container *ngIf="cellTemplate">
+                  <td>
+                    <ng-container
+                      *ngTemplateOutlet="cellTemplate; context: {index: rowIndex, column: column, columns: columns}">
+                    </ng-container>
+                  </td>
+                </ng-container>
+              </ng-container>
+            </tr>
+          </ng-container>
+    </tbody>
+    <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+  </table>

@@ -1,0 +1,23 @@
+<!-- Grey with black text -->
+<h1 class="p-2 text-center">Welcome to SuperApp Master </h1>
+
+<nav class="navbar navbar-expand-sm bg-light navbar-light">
+  <ul class="navbar-nav">
+    <li class="nav-item ">
+      <a class="nav-link" [routerLink]="['clientSidePagenation']" routerLinkActive="active" >Pagination</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['export']" routerLinkActive="active" >Excel</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['wheelpicker']" routerLinkActive="active" >Wheel Picker </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['commontable']" routerLinkActive="active"  href="#">Common Table</a>
+    </li>
+  </ul>
+</nav>
+
+<!-- <app-table-structure></app-table-structure> -->
+
+<router-outlet></router-outlet>

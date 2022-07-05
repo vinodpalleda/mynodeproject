@@ -1,0 +1,132 @@
+
+toolbar {
+    position: relative;
+    display: flex;
+    flex: 0 0 auto;
+    z-index: 4;
+
+    &.below {
+        z-index: 2;
+    }
+
+    .heading-branding {
+        font-size: 14px !important;
+    }
+    .div-border {
+        border-right: 1px solid black;
+    }
+    .mat-toolbar {
+        background: inherit !important;
+        color: inherit !important;
+        position: relative;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+
+        .logo-icon {
+            width: 38px;
+        }
+    }
+
+    .user-button,
+    fuse-search-bar,
+    .language-button,
+    .chat-panel-toggle-button,
+    .quick-panel-toggle-button {
+        min-width: 64px;
+        height: 64px;
+
+        @include media-breakpoint("xs") {
+            height: 56px;
+        }
+    }
+
+    .navbar-toggle-button {
+        min-width: 56px;
+        height: 56px;
+    }
+
+    .toolbar-separator {
+        height: 52px;
+        width: 1px;
+
+        @include media-breakpoint("xs") {
+            height: 56px;
+        }
+    }
+
+    .header-text-color {
+        color: #5d5d5d;
+        font-size: 14px;
+    }
+    .icon-position-toolbar {
+        color: #a0a0a0;
+        position: relative;
+        top: 5px;
+    }
+}
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 1025px) and (max-device-width: 1300px) and (-webkit-min-device-pixel-ratio: 1) {
+    .time-date {
+        display: none;
+    }
+}
+
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 599px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+    .left-toolbar {
+         display: none !important;
+    }
+    .tagline-text {
+        display:none !important;
+    }
+    .account-type {
+        display:none !important;
+    }
+    .right-toolbar {
+        margin-right: 0;
+        margin-left: 140px;
+    }
+}
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 481px) and (max-device-width: 599px) and (-webkit-min-device-pixel-ratio: 1) {
+    .left-toolbar {
+         display: none !important;
+    }
+    .tagline-text {
+        display:none !important;
+    }
+    .account-type {
+        display:none !important;
+    }
+    .right-toolbar {
+        margin-right: 0;
+        margin-left: 140px;
+    }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+    .left-toolbar {
+        display: none !important;
+    }
+    .tagline-text {
+        display: none;
+    }
+    .account-type {
+        display: none;
+    }
+    .time-date {
+        display: none;
+    }
+    .notification {
+        display: none;
+    }
+    .toolbar-separator {
+        display: none;
+    }
+    .account-credit {
+        margin-right: 60px;
+    }
+}

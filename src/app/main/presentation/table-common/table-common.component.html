@@ -1,0 +1,14 @@
+<!-- <p>
+  table-common works!
+</p> -->
+<!-- <app-table-structure></app-table-structure> -->
+
+<app-table-structure [columns]="columns" [dataSource]="dataSource" [headerCellTemplate]="headerCellTemplate"
+[cellTemplate]="cellTemplate" [totalcount]='totalcount' (searchUpdated)=search($event) (pageUpdated)='pageChange($event)'  (sortUpdated)='sortChange($event)'>
+<ng-template #headerCellTemplate let-index="index" let-columns="columns">
+{{columns[index]}}
+</ng-template>
+<ng-template #cellTemplate let-column="column" let-index="index" let-columns="columns">
+{{dataSource[index][column]}}
+</ng-template>
+</app-table-structure> 

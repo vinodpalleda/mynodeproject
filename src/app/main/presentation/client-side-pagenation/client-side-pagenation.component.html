@@ -1,0 +1,59 @@
+<!-- <ul>
+    <li *ngFor="let item of collection | paginate: { itemsPerPage: limit, currentPage: p }"> test</li>
+  </ul>
+             
+  <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+  
+  
+   -->
+
+<!-- <h2> {{name}}</h2> -->
+<div class="container" style="padding: 20px;">
+  <!-- <div>
+    <label for="per-page">
+      Per Page:
+    </label>
+    <select  [(ngModel)]="limit" 
+          (change)=" onLimitChange($event.target.value)">
+      <option *ngFor="let option of pageLimitOptions" [value]="option.value">
+        {{ option.value }}
+      </option>
+    </select>
+  </div> -->
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped ">
+      <thead class="thead-dark">
+        <tr>
+          <!-- <th (click)="sortedColumn = col">id</th> -->
+            <!-- <th>Country</th>
+            <th>Established</th>
+            <th>Head_quaters</th>
+            <th>Logo</th> -->
+            <th >id</th>
+          <th>Name</th>
+          <th >Company</th>
+          
+          <!-- <th>Slogan</th>
+          <th>Website</th> -->
+        </tr>
+      </thead>
+      <!-- | sort:sortedColumn  -->
+      <tr *ngFor="let item of data | paginate:{itemsPerPage:limit, currentPage:p, totalItems:totalcount} ">
+        <!-- | paginate:{itemsPerPage:20, currentPage:p} -->
+        <!-- <td>{{item?.airline[0]?.id || 'NA'}}</td>
+        <td>{{item?.airline[0]?.country || 'NA'}}</td>
+        <td>{{item?.airline[0]?.established || 'NA'}}</td>
+        <td>{{item?.airline[0]?.head_quaters || 'NA'}}</td>
+        <td>
+          <img src="{{item?.airline[0]?.logo || 'NA'}}" alt="dummy logo">
+        </td> -->
+        <td>{{item?.id || 'NA'}}</td>
+        <td>{{item?.name || 'NA'}}</td>
+        <td>{{item?.company || 'NA'}}</td>
+        <!-- <td>{{item?.airline[0]?.website || 'NA'}}</td> -->
+
+      </tr>
+    </table>
+  </div>
+  <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+</div>

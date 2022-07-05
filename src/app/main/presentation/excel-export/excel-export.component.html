@@ -1,0 +1,37 @@
+<button class="btn btn-success mt-5" (click)="exportAsXLSX()">test Excel Convert</button>
+
+
+<div class="" style="padding: 20px;">
+    <table class="table table-bordered table-striped ">
+        <tr>
+            <td>Eid</td>
+            <td>Ename</td>
+            <td>Esal</td>
+        </tr>
+        <tr *ngFor="let item of data">
+            <td>{{item.eid}}</td>
+            <td>{{item.ename}}</td>
+            <td>{{item.esal}}</td>
+        </tr>
+    </table>
+</div>
+
+
+
+
+
+<input type="file" (change)="onChange($event)" #inputFile> <button class="btn btn-primary" (click)="removeData()">Remove Data</button>
+<div *ngIf="isExcelFile === false">
+  This is not an Excel file
+</div>
+    <span *ngIf="spinnerEnabled" class="k-i-loading k-icon"></span>
+    <table class="table table-bordered table-striped ">
+      <th *ngFor="let key of keys">
+        {{key}}
+      </th>
+      <tr *ngFor="let item of dataSheet | async">
+        <td *ngFor="let key of keys">
+          {{item[key]}}
+        </td>
+      </tr> 
+    </table>

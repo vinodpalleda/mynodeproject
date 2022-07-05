@@ -1,0 +1,155 @@
+<div class="card">
+   <div class="card-body">
+      <!-- <form name="configProductForm" [formGroup]="configProductForm" novalidate> -->
+       <form [formGroup]="configProductForm" (ngSubmit)="submitConfigProductData()" novalidate>
+         <div class="row g-2">
+            <div class="col-sm-12 col-md-6">
+               <div class="form-floating mb-2">
+                  <input type="text" class="form-control" formControlName="productname" id=""  placeholder="" />
+                  <label for="floatingInput">Product name</label>
+                  <div class="text-danger" *ngIf="configProductForm.get('productname') && configProductForm.get('productname').invalid && configProductForm.get('productname').touched">Product name length must be less then 40 char</div>
+               </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+               <div class="form-floating mb-2">
+                  <input type="text" class="form-control" formControlName="partnername" id="" placeholder="" />
+                  <label for="">Partner name</label>
+                  <div class="text-danger" *ngIf="configProductForm.get('partnername') && configProductForm.get('partnername').invalid && configProductForm.get('partnername').touched">Partner name length must be less then 40 char</div>
+               </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+               <div class="form-floating mb-2">
+                  <textarea data-toggle="maxlength" class="form-control" formControlName="productdesc" maxlength="225" rows="3" placeholder="This textarea has a limit of 225 chars."></textarea>
+                  <label for="floatingInput">Product description</label>
+                  <div class="text-danger" *ngIf="configProductForm.get('productdesc') && configProductForm.get('productdesc').invalid && configProductForm.get('productdesc').touched">Product description length must be less then 40 char</div>
+               </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+               <div class="form-floating mb-2">
+                  <select class="form-select" formControlName="productcategory" id="floatingSelect" aria-label="Floating label select example">
+                     <option disabled>Open this select menu</option>
+                     <option value="1">Games</option>
+                     <option value="2">Music</option>
+                     <option value="3">Video</option>
+                     <option value="news">News</option>
+                     <option value="sms">SMS</option>
+                     <option value="contest">Contest</option>
+                  </select>
+                  <label for="floatingSelect">Product category</label>
+                  <div class="text-danger" *ngIf="configProductForm.get('productcategory') && configProductForm.get('productcategory').invalid && configProductForm.get('productcategory').touched">Please select any one product category </div>
+               </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+               <div class="mb-2">
+                  <label for="example-fileinput" class="cus-label">add thumbnail</label>
+                  <input type="file" multiple id="example-fileinput" accept="image/*" formControlName="addthumbnail" class="form-control" >
+                  <div class="text-danger" *ngIf="configProductForm.get('addthumbnail') && configProductForm.get('addthumbnail').invalid && configProductForm.get('addthumbnail').touched">Please add  any thumbnail </div>
+               </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+               <div class="mb-2">
+                  <label for="example-fileinput" class="cus-label">add price point</label>
+                  <input type="file" accept="image/*" id="" formControlName="pricepoint" class="form-control">
+                  <div class="text-danger" *ngIf="configProductForm.get('pricepoint') && configProductForm.get('pricepoint').invalid && configProductForm.get('pricepoint').touched">Please add price point</div>
+               </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+               <div class="form-floating mb-2">
+                  <input type="text" class="form-control" formControlName="productvarient" id="" placeholder="" />
+                  <label for="floatingInput">Product variant name</label>
+                  <div class="text-danger" *ngIf="configProductForm.get('productvarient') && configProductForm.get('productvarient').invalid && configProductForm.get('productvarient').touched">Product variant name length must be less then 40 char</div>
+               </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+               <div class="form-floating mb-2">
+                  <input type="number" class="form-control" formControlName="pricepoint1" id="" placeholder="name@example.com" />
+                  <label for="">Price point</label>
+                  <div class="text-danger" *ngIf="configProductForm.get('pricepoint1') && configProductForm.get('pricepoint1').invalid && configProductForm.get('pricepoint1').touched">Price point length must be less then 7 number</div>
+               </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+               <div class="form-floating mb-2">
+                  <textarea data-toggle="maxlength" class="form-control" formControlName="productdescription" maxlength="300" rows="3" placeholder="This textarea has a limit of 300 chars."></textarea>
+                  <label for="floatingInput">Product description</label>
+                  <div class="text-danger" *ngIf="configProductForm.get('productdescription') && configProductForm.get('productdescription').invalid && configProductForm.get('productdescription').touched">Product description length must be less then 300 char</div>
+               </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+               <div class="form-floating mb-2">
+                  <input type="text" class="form-control" formControlName="servicecode" id="" placeholder="" />
+                  <label for="">service code</label>
+                  <div class="text-danger" *ngIf="configProductForm.get('servicecode') && configProductForm.get('servicecode').invalid && configProductForm.get('servicecode').touched">service code length must be less then 50 char</div>
+               </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+               <div class="form-floating mb-2">
+                  <select class="form-select" id="" formControlName="ctype" aria-label="Floating label select example">
+                     <option disabled>Open this select menu</option>
+                     <option value="inapp">In App</option>
+                     <option value="outsideapp">outside App</option>
+                  </select>
+                  <label for="floatingSelect">Consumption type</label>
+                  <div class="text-danger" *ngIf="configProductForm.get('ctype') && configProductForm.get('ctype').invalid && configProductForm.get('ctype').touched">Please select any one consumption type </div>
+               </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+               <div class="form-floating mb-2">
+                  <input type="text" class="form-control" formControlName="validity" id="" placeholder="" />
+                  <label for="floatingInput">Validity</label>
+                  <div class="text-danger" *ngIf="configProductForm.get('validity') && configProductForm.get('validity').invalid && configProductForm.get('validity').touched">Validity length must be less then 40 char</div>
+               </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+               <div class="form-floating mb-2">
+                  <input type="text" class="form-control" formControlName="dvas" id="" placeholder="" />
+                  <label for="floatingInput">dVAS consumtion redirection</label>
+                  <div class="text-danger" *ngIf="configProductForm.get('dvas') && configProductForm.get('dvas').invalid && configProductForm.get('dvas').touched">dVAS consumtion redirection length must be less then 200 char</div>
+               </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+               <div class="form-floating mb-2">
+                  <select class="form-select" id="" formControlName="producttype" aria-label="Floating label select example">
+                     <option disabled>Open this select menu</option>
+                     <option value="games">Games</option>
+                     <option value="music">Music</option>
+                     <option value="video">Video</option>
+                     <option value="news">News</option>
+                     <option value="sms">SMS</option>
+                     <option value="contest">Contest</option>
+                  </select>
+                  <label for="floatingSelect">Product type</label>
+                  <div class="text-danger" *ngIf="configProductForm.get('producttype') && configProductForm.get('producttype').invalid && configProductForm.get('producttype').touched">Please select any one product type </div>
+               </div>
+            </div>
+            <div class="col-12">
+               <div class="form-floating mb-2">
+                  <textarea data-toggle="maxlength" formControlName="dvasci" class="form-control" maxlength="500" rows="6" placeholder="This textarea has a limit of 225 chars."></textarea>
+                  <label for="floatingInput">dVAS Consumption Instruction</label>
+                  <div class="text-danger" *ngIf="configProductForm.get('dvasci') && configProductForm.get('dvasci').invalid && configProductForm.get('dvasci').touched">dVAS consumtion redirection length must be less then 500 char</div>
+               </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+               <div class="mb-2">
+                  <label for="" class="cus-label">add thumbnail</label>
+                  <input type="file" accept="image/*" formControlName="addthumbnail1" id="" class="form-control">
+                  <div class="text-danger" *ngIf="configProductForm.get('addthumbnail1') && configProductForm.get('addthumbnail1').invalid && configProductForm.get('addthumbnail1').touched">Please add thumbnail</div>
+               </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+               <div class="form-floating mb-2">
+                  <input type="text" class="form-control" formControlName="priority" id="" placeholder="" />
+                  <label for="floatingInput">priority</label>
+                  <div class="text-danger" *ngIf="configProductForm.get('priority') && configProductForm.get('priority').invalid && configProductForm.get('priority').touched">Priority length must be less then 40 char</div>
+               </div>
+            </div>
+            <div class="col-12">
+               <div class="cus-button text-center">
+                  <!-- <button [disabled]="configProductForm.invalid" type="submit" class="btn btn-primary cus-save"
+                  (click)="submitConfigProductData();">Save</button> -->
+                  <button class="btn btn-primary cus-save">Submit</button>
+               </div>
+            </div>
+         </div>
+      </form>
+   </div>
+</div>
