@@ -27,9 +27,9 @@ pipeline {
 		}
         stage('Pull Branch Dev') {
         steps {
-            git branch: 'dev-release-v2',
+            git branch: 'master',
                 credentialsId: '6JS3z3xzpUs3Nz6xJA8D',
-                url: 'https://anik-digispice:6JS3z3xzpUs3Nz6xJA8D@bitbucket.org/anik-digispice/super-app-master.git'
+                url: 'https://vinodpalleda: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@github.com/vinodpalleda/mynodeproject.git'
 
             sh "ls -lat"
         }
