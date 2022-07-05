@@ -36,16 +36,16 @@ pipeline {
    stage('NPM Install') {
         steps{
             sh 'pwd'
-            sh 'npm install'
-            sh 'npm install i -g @angular/cli'
-            sh 'node --version'
+            sh 'sudo npm install'
+            sh 'sudo npm install i -g @angular/cli'
+            sh 'sudo node --version'
         }
         /*}*/
     }
 	stage('Build') {
          steps{
         milestone(20)
-        sh 'ng build --prod --aot --outputHashing=all'
+        sh ' sudo ng build --prod --aot --outputHashing=all'
          }
     }
 
