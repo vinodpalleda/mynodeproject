@@ -46,7 +46,7 @@ pipeline {
 	stage('Build') {
          steps{
         milestone(20)
-        sh ' sudo ng build --prod --aot --outputHashing=all'
+        sh 'sudo ng build --prod --aot --outputHashing=all'
          }
     }
 
