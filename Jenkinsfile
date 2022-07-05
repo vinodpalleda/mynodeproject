@@ -39,9 +39,9 @@ pipeline {
    stage('NPM Install') {
         steps{
             sh 'pwd'
-            sh 'sudo npm install'
-            sh 'sudo npm install i -g @angular/cli'
-            sh 'sudo node --version'
+            sh 'npm install'
+            sh 'npm install i -g @angular/cli'
+            sh 'node --version'
         }
         /*}*/
     }
