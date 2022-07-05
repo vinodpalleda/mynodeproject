@@ -2,9 +2,9 @@
 
 //DECLARATIVE
 pipeline {
-	agent any
+	//agent any
 	// agent { docker { image 'maven:3.6.3'} }
-	// agent { docker { image 'node:13.8'} }
+	 agent { docker { image 'node:14.15.5'} }
 	environment {
 		dockerHome = tool 'myDocker'
 		mavenHome = tool 'myMaven'
@@ -25,29 +25,31 @@ pipeline {
 				echo "BUILD_URL - $env.BUILD_URL"
 			}
 		}
-		stage('Compile') {
-			steps {
-				sh "mvn clean compile"
-			}
-		}
+        stage('Pull Branch Dev') {
+        steps {
+            git branch: 'dev-release-v2',
+                credentialsId: '6JS3z3xzpUs3Nz6xJA8D',
+                url: 'https://anik-digispice:6JS3z3xzpUs3Nz6xJA8D@bitbucket.org/anik-digispice/super-app-master.git'
 
-		stage('Test') {
-			steps {
-				sh "mvn test"
-			}
-		}
+            sh "ls -lat"
+        }
+    }
+   stage('NPM Install') {
+        steps{
+            sh 'pwd'
+            sh 'npm install'
+            sh 'npm install i -g @angular/cli'
+            sh 'node --version'
+        }
+        /*}*/
+    }
+	stage('Build') {
+         steps{
+        milestone(20)
+        sh 'ng build --prod --aot --outputHashing=all'
+         }
+    }
 
-		stage('Integration Test') {
-			steps {
-				sh "mvn failsafe:integration-test failsafe:verify"
-			}
-		}
-
-		stage('Package') {
-			steps {
-				sh "mvn package -DskipTests"
-			}
-		}
 
 		stage('Build Docker Image') {
 			steps {
